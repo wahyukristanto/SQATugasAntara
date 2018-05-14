@@ -14,7 +14,7 @@ public final class Dadu {
     this.jumSisi = numSides;
   }
 
-  public int lempar() {
+  public int lempar() { // Bagian lukas
     hasil = randGenerator.nextInt(jumSisi) + 1;
     return hasil;
   }
