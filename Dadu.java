@@ -70,7 +70,7 @@ public final class Dadu {
     return warnaSisi[hasil];
   }
 
-  public int lempar() {
+  public int lempar() { // Bagian lukas
     hasil = randGenerator.nextInt(jumSisi) + 1;
     return hasil;
   }
