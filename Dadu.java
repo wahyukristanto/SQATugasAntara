@@ -71,7 +71,31 @@ public final class Dadu {
   }
 
   public int lempar() {
-    hasil = randGenerator.nextInt(jumSisi) + 1;
+    if(perulangan == jumSisi){
+      System.out.println("Semua sisi sudah ditampilkan");
+    }else{
+      hasil = randGenerator.nextInt(jumSisi) + 1;
+      int beda = 0;
+      if(perulangan != 0){
+        int j=0;
+        while(beda != perulangan){
+          System.out.println(hasil +" -- " +cekBedaNilai[j]);
+          if(hasil == cekBedaNilai[j]){
+            hasil = randGenerator.nextInt(jumSisi) + 1;
+            beda = 0;
+            j = 0;
+            System.out.println(" PODO GAN! ");
+          }else{
+            j++;
+            beda++;
+          }
+        }
+      }
+      cekBedaNilai[perulangan] = hasil;
+      System.out.println("Warna sisi ke-" +hasil +" adalah " +getWarnaSisi(hasil-1));
+      perulangan++;
+    }
+
     return hasil;
   }
 
@@ -85,6 +109,9 @@ public final class Dadu {
 
   @Override
   public String toString() {
+    for(int i=0; i<jumSisi; i++){
+      System.out.println(i +" = " +cekBedaNilai[i]);
+    }
     return "Jumlah sisi dadu: " + getJumSisi() + " hasil: " + getHasil();
   }
 }
